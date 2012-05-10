@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+import cherrypy
+from orange_auth_service.authservice import Root
+
+conf = {
+    'global': {
+        'server.socket_host': '0.0.0.0',
+        'server.socket_port': 443
+     }
+}
+
+cherrypy.quickstart(Root(), '/', conf)

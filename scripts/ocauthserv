@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+'''
+Created on 2012-05-09
+
+@author: fransham
+'''
+
+import argparse
+import sys
+from ocauth.users import UserRepo
+
+if __name__ == '__main__':
+
+    repo = UserRepo()
+
+    # parse command line args:    
+    parser = argparse.ArgumentParser(description="Interact with the Orange Cloud Authentication Service")
+    parser.add_argument('--username', required=True)
+    parser.add_argument('--password')
+    parser.add_argument('--add', action='store_true')
+    parser.add_argument('--setpass', action='store_true')
+    parser.add_argument('--delete', action='store_true')
+    args = vars(parser.parse_args(sys.argv[1:]))
+    
+    if args['add']:
+        if not args['password']:
+            print "Must specify a password to add a user"
+            sys.exit(1)
+        repo.add_user(args['username'], args['password'])
+        sys.exit(0)
+        
+    if args['setpass']:
+        if not args['password']:
+            print "Must specify a password"
+            sys.exit(1)
+        repo.update_password(args['username'], args['password'])
+        sys.exit(0)
+    
+    if args['delete']:
+        repo.remove_user(args['username'])
+        
