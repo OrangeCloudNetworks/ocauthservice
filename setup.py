@@ -1,6 +1,12 @@
 '''
 Created on 2012-02-23
 
+Installation script for the orange cloud sync service.  Run with 
+
+python setup.py install
+
+Requires cherrypy and mongodb. 
+
 @author: fransham
 '''
 from distutils.core import setup
