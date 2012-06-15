@@ -20,4 +20,5 @@ setup(name='Orange Cloud Auth Service',
       package_dir = {'': 'src'},
       packages = ['ocauth'],
       scripts=['scripts/ocauthserv', 'scripts/ocauthservd']
+      data_files=[('/etc/init.d', ['scripts/ocauth'])]
      )
