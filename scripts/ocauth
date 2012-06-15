@@ -7,7 +7,7 @@
 . /etc/rc.d/init.d/functions
 
 prog="Orange Cloud Auth Service"
-appctl=/usr/local/bin/ocauthserv
+appctl=/usr/local/bin/ocauthservd
 dirapp=/usr/local/bin/
 lockfile=/var/lock/ocauth.lock
 
